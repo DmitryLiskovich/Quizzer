@@ -1,0 +1,32 @@
+.header-top {
+  height: 56px;
+  width: 100%;
+  background: #eee;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0px 17px 35px -12px rgba(0,0,0,0.75);
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+
+    &_welcome {
+      color: #000;
+      font-weight: 300;
+    }
+
+    &_user-img {
+      height: 30px;
+      width: 30px;
+      background: url(../../assets/images/navigation/user-not-found.jpeg) center center / cover;
+      border-radius: 50%;
+      border: solid 2px #eee;
+      margin-left: 10px;
+    }
+  }
+}

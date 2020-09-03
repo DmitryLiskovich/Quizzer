@@ -1,0 +1,120 @@
+// import fonts
+@font-face {
+  font-family: 'Alegreya';
+  src: url(./assets/fonts/Alegreya-Regular.ttf) format('opentype');
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Alegreya';
+	src: url(./assets/fonts/Alegreya-Medium.ttf) format('opentype');
+	font-weight: 300;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Alegreya';
+	src: url(./assets/fonts/Alegreya-Bold.ttf) format('opentype');
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Alegreya';
+	src: url(./assets/fonts/Alegreya-ExtraBold.ttf) format('opentype');
+	font-weight: 500;
+	font-display: swap;
+}
+
+input, label, button {
+  display: block;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, button {
+  margin: 0;
+  padding: 0;
+  color: #e6e6e6;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Alegreya', Arial, Helvetica, sans-serif;
+  font-weight: 200;
+}
+
+#root {
+  height: 100vh;
+}
+
+.route-wrapper {
+  background: url(./assets/images/navigation/app-bg.jpg) center center / cover;
+  width: 100%;
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &_content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #00000088;
+    backdrop-filter: blur(10px);
+  }
+}
+
+input, textarea, select {
+  resize: vertical;
+  width: 100%;
+  background: transparent;
+  color: #e6e6e6;
+  border: 1px solid #e6e6e699;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  height: 40px;
+  padding-left: 15px;
+  font-size: 20px;
+}
+
+select option {
+  color: #000;
+}
+
+input[type=checkbox], input[type=radio] {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0;
+}
+
+label {
+  display: inline-block;
+  font-size: 20px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #88888877;
+  cursor: pointer;
+}

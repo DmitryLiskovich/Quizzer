@@ -1,0 +1,100 @@
+.signin {
+  background: #00000044;
+  padding: 20px 40px;
+  border-radius: 10px;
+  max-width: 350px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+
+  .questions-controlls div {
+    display: flex;
+
+    button {
+      width: 48%;
+    }
+    
+    button:nth-child(2n){
+      margin-left: 20px;
+    }
+  }
+
+  .signin-quiz-questions {
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+    
+    .answer-controll {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      justify-content: space-between;
+
+      label {
+        margin: 0 10px;
+      }
+      
+      svg {
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        justify-self: flex-end;
+      }
+    }
+  }
+
+  &.quiz {
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+    height: 100%;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: center;
+
+    & .question-details {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    & .quiz-details {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    button {
+      max-width: 400px;
+    }
+  }
+
+  .signin_form_error {
+    color: 	#FF0000;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  h2, p {
+    text-align: center;
+    display: block;
+  }
+
+  button {
+    margin: auto;
+    background: #00000055;
+    border: none;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: ease-in-out all 0.5s;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    &:hover {
+      background: #ffffffdd;
+      color: #000
+    }
+  }
+}
