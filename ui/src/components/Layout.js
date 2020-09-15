@@ -2,9 +2,9 @@ import React from 'react'
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Navbar } from './Navbar/Navbar';
 import { Header } from './Header/Header';
-import { Provider, useSelector, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { reducer } from './Quiz/redux/reducer';
+import { reducer } from './CreateQuiz/redux/reducer';
 import { routes } from '../routes/routes';
 import './layout.scss';
 
@@ -25,13 +25,13 @@ export function Layout() {
                     && (!localStorage.getItem('user') || !route.notForRegistred)
                     && <Route 
                       key={index}
-                      exact={route.path === '/' ? true : false} 
+                      exact={route.exact ? true : false} 
                       path={route.path}
                       component={route.component}
                     />
                   )
                 }
-                <Redirect to='/'/>
+                {/* <Redirect to='/'/> */}
               </Switch>
             </Provider>
           </div>

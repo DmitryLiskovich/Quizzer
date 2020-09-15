@@ -1,22 +1,20 @@
 import React from 'react';
-import { Radio } from './subcomponents/Radio';
-import { Checkbox } from './subcomponents/Checkbox';
-import { Input } from './subcomponents/Input';
 
-export function QuizCard({question, answers, type, resultState, input, moreDetail}) {
+export function QuizCard({question, id}) {
   return(
     <div>
-      <h2>{question}</h2>
-      <p>{moreDetail}</p>
+      <h2>{question.question}</h2>
+      <p>{question.details}</p>
       <form>
-        { answers && answers.map((item, index) => {
-          switch(type) {
-            case 'radio': return <Radio value={item} index={index}/>
-            case 'checkbox': return <Checkbox value={item} index={index}/>
-            default: return
-          }
+        {question.answers.map((item, index) => {
+          const name = question.type === 'radio' ? 'radio' : `${question.type}-${index}`
+          return(
+            <div key={index}>
+              <label htmlFor={`quiz-${id}-${index}`}>{item.value}</label>
+              <input name={name} id={`quiz-${id}-${index}`} type={question.type}></input>
+            </div>
+          )
         })}
-        {input && <Input/>}
       </form>
     </div>
   )

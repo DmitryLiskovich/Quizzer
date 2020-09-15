@@ -4,6 +4,8 @@ export const reducer = (state={}, action) => {
       return {...state, config: action.payload};
     case "ADD_QUES":
       return {...state, questions: action.payload};
+    case "ADD_FULL": 
+      return action.payload;
     default:
       return state;
   }

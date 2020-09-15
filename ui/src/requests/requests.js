@@ -18,4 +18,12 @@ export class Requests {
   async addQuiz(quiz) {
     return await axios.post(this.url + '/createQuiz', quiz);
   }
+
+  async getQuizzes() {
+    return await axios.get(this.url + '/quizzes');
+  }
+
+  async getQuiz(id) {
+    return await axios.get(this.url + '/quizzes/'+id);
+  }
 }

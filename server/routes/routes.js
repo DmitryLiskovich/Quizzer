@@ -1,6 +1,7 @@
 const register = require('./register/register');
 const auth = require('./auth/auth');
 const createQuiz = require('./createQuiz/createQuiz');
+const quizzes = require('./quizzes/quizzes');
 
 module.exports = [
   {
@@ -14,5 +15,9 @@ module.exports = [
   {
     path: '/createQuiz',
     func: createQuiz
-  }
+  },
+  {
+    path: '/quizzes',
+    func: quizzes
+  },
 ]

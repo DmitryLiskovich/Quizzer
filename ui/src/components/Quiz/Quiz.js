@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { Requests } from '../../requests/requests';
-import { QuizSettings } from './subcomponents/QuizSettings';
-import { Question } from './subcomponents/Question';
+import { QuizCard } from '../QuizCard/QuizCard';
 
-export function CreateQuizz() {
-  const [activeStep, setActiveStep] = useState('Settings');
-  const requests = new Requests();
+export function Quiz({match}) {
+  const [quizData, setQuizData] = useState({});
+  const requests = new Requests;
 
-  const quiz = useSelector(state => state); 
-
-  const sendQuiz = () => {
-    requests.addQuiz(quiz);
-  }
+  console.log(quizData);
+  
+  useEffect(()=>{
+    ( async ()=>{
+      const result = await requests.getQuiz(match.params.id).then(data => data.data.data);
+      setQuizData(result);
+    })()
+  }, [])
 
   return(
-    <div className='signin quiz'>
-      {activeStep === 'Settings' && <QuizSettings routState={setActiveStep}/>}
-      {activeStep === 'Questions' && <Question routState={setActiveStep}/>}
-      <button onClick={ sendQuiz } type='button'>Create Quiz</button>
+    <div>
+      {quizData.questions?.map((item, index) => <QuizCard id={index} key={index} question={item}/>)}
     </div>
   )
 }
