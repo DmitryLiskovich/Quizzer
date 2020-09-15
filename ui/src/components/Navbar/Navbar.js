@@ -21,7 +21,7 @@ export function Navbar() {
             (item.isPublic || localStorage.getItem('user'))
             && (!localStorage.getItem('user') || !item.notForRegistred)
             && item.path !== '/' 
-            && <li key={index}><Link to={item.path}>{item.name}</Link></li>
+            && !item.notInMenu && <li key={index}><Link to={item.path}>{item.name}</Link></li>
           )}
           {localStorage.getItem('user') && <li><a href='' onClick={signOut}>Sign out</a></li>}
         </ul>

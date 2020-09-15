@@ -1,8 +1,9 @@
 import React from 'react';
+import './card.scss';
 
 export function QuizCard({question, id}) {
   return(
-    <div>
+    <div className='quiz-card'>
       <h2>{question.question}</h2>
       <p>{question.details}</p>
       <form>

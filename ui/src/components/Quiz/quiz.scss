@@ -1,0 +1,41 @@
+.indicators {
+  display: flex;
+  .indicator {
+    height: 30px;
+    width: 30px;
+    border-radius: 2px;
+    background: #eee;
+    color: #000;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+
+    &.active {
+      border: #aaa solid 1px;
+    }
+
+    &.passed {
+      opacity: 0.6;
+    }
+  }
+
+  button {
+    color: #000;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+}
+
+.quiz-wrapper {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  color: #000;
+  height: 100%;
+  width: 100%;
+  h2 {
+    color: #000;
+  }
+}

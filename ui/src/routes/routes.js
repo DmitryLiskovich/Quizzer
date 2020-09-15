@@ -52,6 +52,7 @@ export const routes = [
     component: Quiz,
     isPublic: true,
     name: 'Quiz',
+    notInMenu: true,
     notForRegistred: false,
   },
 ]
