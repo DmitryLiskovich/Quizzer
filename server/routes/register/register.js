@@ -1,15 +1,24 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const user = require('../../Schemas/User');
-const { email, required, password } = require('./validation/email');
+const { email, required, password, passFull } = require('./validation/email');
 
 router.post('/', async (req, res) => {
   const body = req.body;
   const isValid = email(body.email) && 
-  [body.f_name, body.l_name].every(item => required(item)) && password(body.password, body.password_r);
+  [body.f_name, body.l_name].every(item => required(item)) && password(body.password, body.password_r) && passFull(body.password);
 
   if(!isValid) {
-    return res.status(401).json({message: 'Validation failed'});
+    let message;
+    switch(true) {
+      case !email(body.email): message = 'Incorect Email'; break;
+      case !required(body.f_name): message = 'First name is required'; break;
+      case !required(body.l_name): message = 'Last name is required'; break;
+      case !password(body.password, body.password_r): message = 'Paswords should be equal and not empty'; break;
+      case !passFull(body.password): message = 'Paswords should be minimum eight characters, at least one letter and one number'; break;
+      default: message = 'Something wrong with server'
+    }
+    return res.status(401).json({message});
   }
 
   const users = await user.find();

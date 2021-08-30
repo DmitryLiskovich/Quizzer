@@ -3,8 +3,10 @@ const email = (email) => {
   return re.test(String(email).toLowerCase());
 }
 
-const password = (p1, p2) => p1 === p2;
+const password = (p1, p2) => p1 === p2 && p1 !== '' && p2 !== '';
 
 const required = (value) => !!value;
 
-module.exports = {password, required, email}
+const passFull = (val) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g.test(val);
+
+module.exports = {password, required, email, passFull}

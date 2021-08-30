@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Requests } from '../../requests/requests';
+import { useSpinner } from '../../hooks/spinner';
+import { Snackbar } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+
+const requests = new Requests();
 
 export function Signup() {
   const [fields, setFields] = useState({
@@ -12,11 +22,29 @@ export function Signup() {
     company: '',
     position: ''
   });
+  const [Spinner, setSpinner] = useSpinner();
+  const [response, setResponse] = useState({status: false, message: ''});
 
-  function createNewUser(e) {
+  function showToast(type, message) {
+    setResponse({status: true, type, message});
+    setTimeout(() => {
+      setResponse({
+        status: false,
+      })
+    }, 2000)
+  }
+
+  async function createNewUser(e) {
     e.preventDefault();
-    const requests = new Requests();
-    requests.registerNewUser(fields);
+    setSpinner(true);
+    try {
+      const response = await requests.registerNewUser(fields);
+      setSpinner(false);
+      showToast('success', response.data.message);
+    } catch(error) {
+      showToast('error', error.response.data.message);
+      setSpinner(false);
+    }
   }
 
   function change(e) {
@@ -28,6 +56,12 @@ export function Signup() {
 
   return(
     <div className='signin'>
+      <Snackbar open={response.status}>
+        <Alert severity={response.type}>
+          {response.message}
+        </Alert>
+      </Snackbar>
+      {Spinner && <Spinner/>}
       <h2>Create a new account</h2>
       <form onSubmit={createNewUser}>
         <label htmlFor='email'>Email</label>
