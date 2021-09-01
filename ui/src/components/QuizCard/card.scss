@@ -1,0 +1,19 @@
+.quiz-card {
+  h2 + p {
+    margin-top: 16px;
+    color: #000;
+  }
+
+  form input {
+    margin-left: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  form {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+}

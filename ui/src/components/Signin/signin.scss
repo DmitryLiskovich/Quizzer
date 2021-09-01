@@ -98,3 +98,22 @@
     }
   }
 }
+
+.sign-up__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .input-wrapper:first-child {
+    width: 100%;
+  }
+
+  .input-wrapper {
+    width: calc(50% - 10px);
+  }
+}
+
+.sign-up {
+  width: 80%;
+  max-width: 600px;
+}

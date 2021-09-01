@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.6.1",
     "axios": "^0.20.0",
+    "eslint-plugin-react": "^7.25.1",
     "node-sass": "^4.14.1",
     "react": "^0.0.0-experimental-94c0244ba",
     "react-dom": "^0.0.0-experimental-94c0244ba",
