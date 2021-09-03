@@ -1,0 +1,27 @@
+version: "3.3"
+services:
+
+  web:
+    restart: always
+    build:
+      context: ./ui
+    ports:
+      - 3000:3000
+    tty: true
+    command: "npm start"
+    volumes: 
+      - ./ui:/ui
+
+  server:
+    restart: always
+    build:
+      context: ./server
+    ports:
+      - 2000:2000
+    command: "nodemon"
+    volumes: 
+      - ./server:/server
+
+volumes:
+  server:
+  ui:

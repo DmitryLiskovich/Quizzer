@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
       position: body.position
     });
 
-    return res.status(200).json({message: 'Created'});
+    return res.status(200).json({message: 'Congratulation. User is registred'});
   }
   catch(e) {
     return res.status(401).json({message: e});
